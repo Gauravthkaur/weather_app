@@ -4,55 +4,126 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather App With JavaScript</title>
+    <title>Advanced Weather App</title>
+    
+    <!-- CSS Links -->
     <link rel="stylesheet" href="style.css">
+    
+    <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <!-- Font Awesome for additional icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
     <div class="container">
+        <!-- Header Section -->
         <div class="header">
-            <div class="search-box">
-                <input type="text" placeholder="Enter your location" class="input-box">
-
-                <button type="submit" class="bi bi-search" id="searchBtn"></button>
+            <div class="search-container">
+                <div class="search-box">
+                    <input 
+                        type="text" 
+                        placeholder="Enter your location" 
+                        class="input-box" 
+                        list="cityList"
+                    >
+                    <button type="submit" class="bi bi-search" id="searchBtn"></button>
+                    
+                    <!-- Geolocation Button -->
+                    <button id="locationBtn" class="location-btn">
+                        <i class="bi bi-geo-alt"></i>
+                    </button>
+                </div>
+                
+                <!-- City Suggestions Datalist -->
+                <datalist id="cityList"></datalist>
             </div>
         </div>
 
+        <!-- Location Not Found Section -->
         <div class="location-not-found">
             <h1>Sorry, Location not found!!!</h1>
-            <img src="404.png" alt="404 Error">
+            <img src="images/404.png" alt="404 Error">
         </div>
 
+        <!-- Weather Body -->
         <div class="weather-body">
-            <img src="cloud.png" alt="Weather Image" class="weather-img">
+            <!-- Weather Image -->
+            <img src="" alt="Weather Image" class="weather-img">
 
+            <!-- Temperature Box -->
             <div class="weather-box">
                 <p class="temperature">0 <sup>°C</sup></p>
-                <p class="description">light rain</p>
+                <p class="description">Weather Description</p>
             </div>
 
+            <!-- Core Weather Details -->
             <div class="weather-details">
+                <!-- Humidity -->
                 <div class="humidity">
                     <i class="fa-sharp fa-solid fa-droplet"></i>
                     <div class="text">
-                        <span id="humidity">45%</span>
+                        <span id="humidity">--%</span>
                         <p>Humidity</p>
                     </div>
                 </div>
 
+                <!-- Wind Speed -->
                 <div class="wind">
                     <i class="fa-solid fa-wind"></i>
                     <div class="text">
-                        <span id="wind-speed">12Km/H</span>
+                        <span id="wind-speed">-- Km/H</span>
                         <p>Wind Speed</p>
                     </div>
                 </div>
             </div>
+
+            <!-- Additional Weather Details -->
+            <div class="additional-details">
+                <!-- Feels Like -->
+                <div class="feels-like">
+                    <i class="bi bi-thermometer-half"></i>
+                    <div class="text">
+                        <span id="feels-like">0°C</span>
+                        <p>Feels Like</p>
+                    </div>
+                </div>
+
+                <!-- Sunrise and Sunset -->
+                <div class="sunrise-sunset">
+                    <div class="sunrise">
+                        <i class="bi bi-sunrise"></i>
+                        <div class="text">
+                            <span id="sunrise">00:00</span>
+                            <p>Sunrise</p>
+                        </div>
+                    </div>
+                    <div class="sunset">
+                        <i class="bi bi-sunset"></i>
+                        <div class="text">
+                            <span id="sunset">00:00</span>
+                            <p>Sunset</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Unit Conversion Toggle -->
+            <div class="unit-toggle">
+                <button id="unitToggleBtn">°C / °F</button>
+            </div>
+        </div>
+
+        <!-- Search History (Optional) -->
+        <div class="search-history">
+            <h3>Recent Searches</h3>
+            <ul id="recentSearchesList"></ul>
         </div>
     </div>
 
-
-    <script src="script.js"></script>
     
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
 </body>
 </html>
